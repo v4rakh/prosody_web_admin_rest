@@ -1,0 +1,28 @@
+
+# only keep executable php files
+bin/*
+!bin/.gitkeep
+!bin/*.php
+
+# composer
+vendor/
+composer.lock
+composer.phar
+
+# do not commit environment vars
+config/env
+
+# only keep folder
+cache/*
+!cache/.gitkeep
+css/.sass-cache/
+
+# do not commit database
+data/db.sqlite
+
+# only keep folder
+log/*
+!log/.gitkeep
+
+# IDE
+.idea/

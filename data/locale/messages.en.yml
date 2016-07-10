@@ -1,0 +1,83 @@
+# Sign up
+sign.up.title: Sign Up
+sign.up.flash.success: Signed up successfully. Check your inbox.
+sign.up.flash.already_in_use_email_and_username: %username%/%email% is already in use.
+sign.up.flash.already_in_use_email: %email% is already in use.
+sign.up.flash.already_in_use_username: %username% is already in use.
+sign.up.form.button: Sign up
+sign.up.form.username: Username:
+sign.up.form.username.placeholder: username
+sign.up.form.email: Email (only used for one time email verification, not persisted further):
+sign.up.form.email.placeholder: xyz@domain.tld
+sign.up.form.password: Password:
+sign.up.form.password.placeholder: Password:
+
+# Verification
+verification.mail.subject: %server% jabber account verification
+verification.mail.body: |
+  Hello %username%,
+  you've signed up for a jabber account on %server%.
+  In order to complete your registration, verify your email within 7 days by clicking on %verificationLink%.
+verification.code.invalid: Verification code %verificationCode% is not valid.
+verification.flash.already_in_use_username: %username% is already in use.
+verification.flash.success: Verification successful. You can now sign in to your newly created jabber account %username%@hoth.one.
+verification.flash.unknown_error: Could not process sign up of %username%. Please contact administrator.
+verification.mail.success.subject: %server% jabber account information
+verification.mail.success.body: |
+  Hello %username%,
+  you've verified your email address successfully and your jabber account on %server% has been created.
+  Your password is "%password%". Keep this mail safe!
+
+# Cleanup
+cleanup.mail.subject: %server% jabber account verification expired
+cleanup.mail.body: |
+  Hello %username%,
+  you've recently signed up for a jabber account on %server% but you did not verify your account within 7 days.
+  Your verification code is invalid now.
+
+# Log
+log.internal.application.error: Internal application error.
+log.signed.up: %username% signed up.
+log.verification.invalid: Tried to use code %verificationCode% but it is invalid.
+log.verification.sucess: %username% verified.
+log.verification.unknown_error: Unknown error in XMPP Rest API.
+log.verification.cleanup: %username% did not verify. Deleted.
+
+# Error
+error.401.title: 401
+error.401.content: Not authorized.
+error.403.title: 403
+error.403.content: Forbidden. Not allowed to access.
+error.404.title: 404
+error.404.content: Not found.
+error.500.title: 500
+error.500.content: Internal application error.
+
+# Validation
+mismatch: There is no validation rule for %field%.
+validate_required: The %field% field is required: The %field% field is required.
+validate_valid_json_string: Field %field% has to be valid JSON.
+validate_valid_email: The %field% field is required to be a valid email address.
+validate_max_len: The %field% field needs to be shorter than %param% characters.
+validate_min_len: The %field% field needs to be longer than %param% characters.
+validate_exact_len: The %field% field needs to be exactly %param% characters in length.
+validate_alpha: The %field% field may only contain alpha characters(a-z).
+validate_alpha_numeric: The %field% field may only contain alpha-numeric characters.
+validate_alpha_dash: The %field% field may only contain alpha characters and dashes.
+validate_numeric: The %field% field may only contain numeric characters.
+validate_integer: The %field% field may only contain a numeric value.
+validate_boolean: The %field% field may only contain a true or false value.
+validate_float: The %field% field may only contain a float value.
+validate_valid_url: The %field% field is required to be a valid URL.
+validate_url_exists: The %field% URL does not exist.
+validate_valid_ip: The %field% field needs to contain a valid IP address.
+validate_valid_cc: The %field% field needs to contain a valid credit card number.
+validate_valid_name: The %field% field needs to contain a valid human name.
+validate_contains: The %field% field needs to contain one of these values: %param%.
+validate_street_address: The %field% field needs to be a valid street address.
+validate_date: The %field% field needs to be a valid date.
+validate_min_numeric: The %field% field needs to be a numeric value, equal to, or higher than %param%.
+validate_max_numeric: The %field% field needs to be a numeric value, equal to, or lower than %param%.
+validate_equals: %field% not equal to %param%.
+validate_set_min_len: %field% needs to have at least %param% item(s).
+validate_default: Field (%field%) is invalid due to an unknown reason (message missing).

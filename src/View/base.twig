@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <!-- Meta -->
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+        <!-- CSS & fonts -->
+        <link rel="stylesheet" href="{{ base_url() }}/css/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic%7CSignika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+        <script src="https://use.fontawesome.com/82b8dead7b.js"></script>
+
+        <!-- jQuery -->
+        <script src="{{ base_url() }}/js/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+    <div id="wrap">
+
+        <!-- Navigation -->
+        <nav id="nav-left">
+            <div id="nav-list">
+                <a href="/">{{ getenv('site_navbar_index_displayname') }}</a>
+
+                {% if getenv('site_navbar_backlink_enabled') %}
+                    <br />
+                    <br />
+                    <a href="{{ getenv('site_navbar_backlink_uri') }}">{{ getenv('site_navbar_backlink_displayname') }}</a>
+                {% endif %}
+
+            </div>
+
+            <!-- Nav footer -->
+            <footer>
+            </footer>
+
+        </nav>
+
+
+        <!-- Icon menu -->
+        <a id="nav-menu-left">
+            <div id="menu"></div>
+        </a>
+
+        <!-- Header -->
+        <header id="header">
+
+            <a href="/">
+                <h1>{{ getenv('site_title') }}</h1>
+            </a>
+
+        </header>
+
+        <!-- Main content -->
+        <div id="container">
+
+            <main>
+                <!-- flash messages -->
+                {% if flash is not empty %}
+                    <div id="flashMessage">
+                        {% if flash.getMessage('info').0 %}
+                            <div class="alert alert-info">
+                                {{ flash.getMessage('info').0 }}
+                            </div>
+                        {% endif %}
+
+                        {% if flash.getMessage('success').0 %}
+                            <div class="alert alert-success">
+                                {{ flash.getMessage('success').0 }}
+                            </div>
+                        {% endif %}
+
+                        {% if flash.getMessage('error') %}
+                            {% for error in flash.getMessage('error') %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <!-- content -->
+                {% block content %}
+                {% endblock %}
+
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <!--<footer><span></span></footer>-->
+
+        <!-- Script -->
+        <script src="{{ base_url() }}/js/main.js"></script>
+
+        <script>
+            $(".alert-danger" ).delay(20000).fadeOut(300);
+            $(".alert-success" ).delay(5000).fadeOut(300);
+            $(".alert-info" ).delay(5000).fadeOut(300);
+        </script>
+
+    </div>
+
+    </body>
+</html>
