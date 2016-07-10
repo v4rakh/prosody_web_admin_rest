@@ -16,14 +16,17 @@ $container[InternalApplicationError::class] = function ($c) {
 };
 
 // pages
-$container[IndexAction::class] = function ($c) {
-    return new IndexAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
+$container[HomeAction::class] = function ($c) {
+    return new HomeAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
 };
 $container[SignUpAction::class] = function ($c) {
-    return new SignUpAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
+    return new SignUpAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'), $c->get('router'));
 };
 $container[VerificationAction::class] = function ($c) {
     return new VerificationAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
+};
+$container[DeleteAction::class] = function ($c) {
+    return new DeleteAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
 };
 
 // Routes
@@ -34,6 +37,7 @@ $app->get('/404', NotFoundAction::class)->setName('404');
 $app->get('/500', InternalApplicationError::class)->setName('500');
 
 // pages
-$app->get('/', IndexAction::class)->setName('/');
+$app->get('/', HomeAction::class)->setName('/');
 $app->map(['GET', 'POST'], '/signup', SignUpAction::class)->setName('signup');
 $app->get('/verification/{verificationCode}', VerificationAction::class)->setName('verification');
+$app->map(['GET', 'POST'], '/delete', DeleteAction::class)->setName('delete');

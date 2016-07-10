@@ -52,32 +52,53 @@ final class VerificationAction
             $this->flash->addMessage('success', $this->translator->trans('verification.flash.success', ['%username%' => $userAwaiting->username]));
             $this->logger->info($this->translator->trans('log.verification.sucess', ['%username%' => $userAwaiting->username]));
 
+            if (getenv('mail_notify') == true) {
+                $mailer = new PHPMailer();
+                $mailer->CharSet = 'UTF-8';
+                $mailer->ContentType = 'text/plain';
+                $mailer->isSMTP();
+                $mailer->SMTPSecure = getenv('mail_secure');
+                $mailer->SMTPAuth = getenv('mail_auth');
+                $mailer->Host = getenv('mail_host');
+                $mailer->Port = getenv('mail_port');
+                $mailer->Username = getenv('mail_username');
+                $mailer->Password = getenv('mail_password');
+                $mailer->From = getenv('mail_from');
+                $mailer->FromName = getenv('mail_from_name');
+                $mailer->addAddress(getenv('mail_notify_to'));
+                $mailer->Subject = $this->translator->trans('verification.mail.success.notify.subject', ['%server%' => getenv('site_xmpp_server_displayname')]);
+                $mailer->Body = $this->translator->trans('verification.mail.success.notify.body', ['%username%' => $userAwaiting->username, '%server%' => getenv('site_xmpp_server_displayname'), '%email%' => $userAwaiting->email]);
+                $mailer->send();
+            }
+
+            $userRegistered = new UserRegistered();
+            $userRegistered->username = $userAwaiting->username;
+            $userRegistered->delete_code = hash('sha256', (time() . $userAwaiting->username . rand()));
+            $userRegistered->save();
+
             $mailer = new PHPMailer();
             $mailer->CharSet = 'UTF-8';
             $mailer->ContentType = 'text/plain';
             $mailer->isSMTP();
             $mailer->SMTPSecure = getenv('mail_secure');
             $mailer->SMTPAuth = getenv('mail_auth');
-
             $mailer->Host = getenv('mail_host');
             $mailer->Port = getenv('mail_port');
             $mailer->Username = getenv('mail_username');
             $mailer->Password = getenv('mail_password');
             $mailer->From = getenv('mail_from');
             $mailer->FromName = getenv('mail_from_name');
-
             $mailer->addAddress($userAwaiting->email);
-
             $mailer->Subject = $this->translator->trans('verification.mail.success.subject', ['%server%' => getenv('site_xmpp_server_displayname')]);
-            $mailer->Body = $this->translator->trans('verification.mail.success.body', ['%username%' => $userAwaiting->username, '%server%' => getenv('site_xmpp_server_displayname'), '%password%' => $userAwaiting->password]);
+            $mailer->Body = $this->translator->trans('verification.mail.success.body', ['%username%' => $userAwaiting->username, '%server%' => getenv('site_xmpp_server_displayname'), '%password%' => $userAwaiting->password, '%deleteCode%' => $userRegistered->delete_code]);
             $mailer->send();
 
             $userAwaiting->delete();
-            return $response->withRedirect('/signup');
+            return $response->withRedirect('/');
         } else {
             $this->flash->addMessage('error', $this->translator->trans('verification.flash.unknown_error', ['%username%' => $userAwaiting->username]));
             $this->logger->warning($this->translator->trans('verification.flash.unknown_error'), ['code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
-            return $response->withRedirect('/signup');
+            return $response->withRedirect('/');
         }
     }
 }

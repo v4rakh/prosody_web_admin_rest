@@ -63,7 +63,20 @@ as dependencies.
 * Change directory to project home
 * `git pull`
 * `composer update`
+* look for changes
 * `php bin/phpmig migrate`
 
 ## Translations ##
 This app uses Symfony Translator. It's bootstraped in `Util\TranslationHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
+
+## Changelog ##
+- 0.1.1:
+    - updated readme and `env.example`
+    - fix some language validator inconsistencies
+    - added admin notifications
+    - added possiblity for users to delete their account
+    - added back index page
+    - works with mod_admin_rest version [afc42d7](https://github.com/snowblindroan/mod_admin_rest/commit/afc42d70f0aceb2351a1bc786d61e3f4dbdfb948)
+- 0.1: 
+    - initial release
+    - works with mod_admin_rest version [afc42d7](https://github.com/snowblindroan/mod_admin_rest/commit/afc42d70f0aceb2351a1bc786d61e3f4dbdfb948)

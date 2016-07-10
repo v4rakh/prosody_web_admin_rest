@@ -7,7 +7,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Symfony\Component\Translation\Translator;
 
-final class IndexAction
+final class HomeAction
 {
     private $view;
     private $translator;
@@ -24,6 +24,9 @@ final class IndexAction
 
     public function __invoke(Request $request, Response $response, $args)
     {
-        return $response->withRedirect('/signup');
+        return $this->view->render($response, 'home.twig', [
+            'title'     => $this->translator->trans('home.title'),
+            'content'   => $this->translator->trans('home.text', ['%server%' => getenv('site_xmpp_server_displayname')])
+        ]);
     }
 }

@@ -93,86 +93,86 @@ class Validator extends GUMP
 
             switch ($e['rule']) {
                 case 'mismatch' :
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_required':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_valid_json_string':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_valid_email':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_max_len':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_min_len':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_exact_len':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_alpha':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_alpha_numeric':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_alpha_dash':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_numeric':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_integer':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_boolean':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_float':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_valid_url':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_url_exists':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_valid_ip':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_valid_cc':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_valid_name':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_contains':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => implode(', ', $param)]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => implode(', ', $param)]);
                     break;
                 case 'validate_street_address':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_date':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_min_numeric':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_max_numeric':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_equals':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
                 case 'validate_set_min_len':
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
                     break;
 
                 default:
-                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param' => $param]);
+                    $resp[$field] = $this->translator->trans($e['rule'], ['%field%' => $field, '%param%' => $param]);
             }
         }
 

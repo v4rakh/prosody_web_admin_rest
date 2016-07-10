@@ -2,6 +2,7 @@
 
 use Curl\Curl;
 use Slim\Flash\Messages;
+use Slim\Interfaces\RouterInterface;
 use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
@@ -14,13 +15,15 @@ final class SignUpAction
     private $translator;
     private $logger;
     private $flash;
+    private $router;
 
-    public function __construct(Twig $view, LoggerInterface $logger, Messages $flash, Translator $translator)
+    public function __construct(Twig $view, LoggerInterface $logger, Messages $flash, Translator $translator, RouterInterface $router)
     {
         $this->view = $view;
         $this->translator = $translator;
         $this->logger = $logger;
         $this->flash = $flash;
+        $this->router = $router;
     }
 
     public function __invoke(Request $request, Response $response, $args)
@@ -102,7 +105,11 @@ final class SignUpAction
 
             $mailer->addAddress($userAwaiting->email);
 
-            $verificationLink = $request->getUri()->getScheme() . '://' . $request->getUri()->getHost() . (!empty($p = $request->getUri()->getPort()) ? ':' .$p : '') .'/verification/' . $userAwaiting->verification_code;
+            $verificationLink = $request->getUri()->getScheme();
+            $verificationLink .= '://';
+            $verificationLink .= $request->getUri()->getHost();
+            $verificationLink .= (!empty($p = $request->getUri()->getPort()) ? ':' .$p : '');
+            $verificationLink .= $this->router->pathFor('verification', ['verificationCode' => $userAwaiting->verification_code]);
 
             $mailer->Subject = $this->translator->trans('verification.mail.subject', ['%server%' => getenv('site_xmpp_server_displayname')]);
             $mailer->Body = $this->translator->trans('verification.mail.body', ['%username%' => $userAwaiting->username, '%verificationLink%' => $verificationLink, '%server%' => getenv('site_xmpp_server_displayname')]);

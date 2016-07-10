@@ -1,3 +1,9 @@
+# Home
+home.title: Home
+home.text: |
+  Hi,
+  welcome to the free jabber service %server%. Sign up now by clicking the "Sign up" button in the navigation bar.
+
 # Sign up
 sign.up.title: Sign Up
 sign.up.flash.success: Signed up successfully. Check your inbox.
@@ -13,7 +19,7 @@ sign.up.form.password: Password:
 sign.up.form.password.placeholder: Password:
 
 # Verification
-verification.mail.subject: %server% jabber account verification
+verification.mail.subject: %server%: jabber account verification
 verification.mail.body: |
   Hello %username%,
   you've signed up for a jabber account on %server%.
@@ -22,14 +28,29 @@ verification.code.invalid: Verification code %verificationCode% is not valid.
 verification.flash.already_in_use_username: %username% is already in use.
 verification.flash.success: Verification successful. You can now sign in to your newly created jabber account %username%@hoth.one.
 verification.flash.unknown_error: Could not process sign up of %username%. Please contact administrator.
-verification.mail.success.subject: %server% jabber account information
+verification.mail.success.subject: %server%: jabber account information
 verification.mail.success.body: |
   Hello %username%,
   you've verified your email address successfully and your jabber account on %server% has been created.
-  Your password is "%password%". Keep this mail safe!
+  Your password is "%password%".
+  If you wish to delete your account, use %deleteCode% on the website.
+  Keep this mail safe!
+verification.mail.success.notify.subject: %server%: user verified their account
+verification.mail.success.notify.body: A user (%email%) verified their account %username%@%server% successfully.
+
+# Delete
+delete.title: Delete Account
+delete.form.username: Username:
+delete.form.username.placeholder: username
+delete.form.delete_code: Deletion Code:
+delete.form.delete_code.placeholder: received via mail on sign up, 32 in length
+delete.form.button: Delete
+delete.flash.combination_not_found: Could not find a combination match for username and delete code.
+delete.flash.success: Successfully deleted your account %username%@%server%.
+delete.flash.unknown_error: Could not process deletion of %username%. Please contact administrator.
 
 # Cleanup
-cleanup.mail.subject: %server% jabber account verification expired
+cleanup.mail.subject: %server%: jabber account verification expired
 cleanup.mail.body: |
   Hello %username%,
   you've recently signed up for a jabber account on %server% but you did not verify your account within 7 days.
@@ -42,6 +63,8 @@ log.verification.invalid: Tried to use code %verificationCode% but it is invalid
 log.verification.sucess: %username% verified.
 log.verification.unknown_error: Unknown error in XMPP Rest API.
 log.verification.cleanup: %username% did not verify. Deleted.
+log.delete.success: %username% deleted their account.
+log.delete.unknown_error: Unknown error in XMPP Rest API.
 
 # Error
 error.401.title: 401
