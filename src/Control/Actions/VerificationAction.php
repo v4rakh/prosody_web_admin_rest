@@ -97,7 +97,7 @@ final class VerificationAction
             return $response->withRedirect('/');
         } else {
             $this->flash->addMessage('error', $this->translator->trans('verification.flash.unknown_error', ['%username%' => $userAwaiting->username]));
-            $this->logger->warning($this->translator->trans('verification.flash.unknown_error'), ['code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
+            $this->logger->warning($this->translator->trans('verification.flash.unknown_error'), ['username' => $userAwaiting->username, 'code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
             return $response->withRedirect('/');
         }
     }

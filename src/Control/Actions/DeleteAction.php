@@ -61,7 +61,7 @@ final class DeleteAction
                 $curl->delete(getenv('xmpp_curl_uri') . '/user/' . $username);
                 $curl->close();
 
-                if ($curl->http_status_code == 200) {
+                if ($curl->http_status_code == 200 || $curl->http_status_code == 404) {
                     $userRegistered->delete();
 
                     $this->flash->addMessage('success', $this->translator->trans('delete.flash.success', ['%username%' => $username, '%server%' => getenv('site_xmpp_server_displayname')]));
@@ -69,7 +69,7 @@ final class DeleteAction
                     return $response->withRedirect('/');
                 } else {
                     $this->flash->addMessage('error', $this->translator->trans('delete.flash.unknown_error', ['%username%' => $username]));
-                    $this->logger->warning($this->translator->trans('log.delete.flash.unknown_error'), ['code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
+                    $this->logger->error($this->translator->trans('log.delete.flash.unknown_error'), ['username' => $username, 'code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
                     return $response->withRedirect('/delete');
                 }
             }
