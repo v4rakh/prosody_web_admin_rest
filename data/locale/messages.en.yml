@@ -49,6 +49,32 @@ delete.flash.combination_not_found: Could not find a combination match for usern
 delete.flash.success: Successfully deleted your account %username%@%server%.
 delete.flash.unknown_error: Could not process deletion of %username%. Please contact administrator.
 
+# Password
+password.title: Change password
+password.form.button: Change password
+password.form.password: Password:
+password.form.password.placeholder: password
+password.form.password_confirmation: Password confirmation:
+password.form.password_confirmation.placeholder: password confirmation
+password.flash.not_the_same: Passwords do not match.
+password.flash.success: Successfully changed your password.
+password.flash.unknown_error: Could not process password change of %username%. Please contact administrator.
+
+# Login
+logged.in.site: Logged in as %username%@%server%
+login.title: Login
+login.flash.success: Logged in as %username%@%server% successfully.
+login.flash.wrong_credentials: Cannot login. Wrong credentials.
+login.form.button: Login
+login.form.username: Username:
+login.form.username.placeholder: username
+login.form.password: Password:
+login.form.password.placeholder: Password:
+
+# Logout
+logout.title: Logout
+logout.flash.success: Logged out successfully.
+
 # Cleanup
 cleanup.mail.subject: %server%: jabber account verification expired
 cleanup.mail.body: |
@@ -65,6 +91,10 @@ log.verification.unknown_error: Unknown error in XMPP Rest API.
 log.verification.cleanup: %username% did not verify. Deleted.
 log.delete.success: %username% deleted their account.
 log.delete.unknown_error: Unknown error in XMPP Rest API.
+log.login: %username% logged in.
+log.logout: %username% logged out.
+log.password.success: %username% changed their password.
+log.password.unknown_error: Unknown error in XMPP Rest API.
 
 # Error
 error.401.title: 401

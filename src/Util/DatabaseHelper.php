@@ -4,7 +4,7 @@ use Illuminate\Database\Capsule\Manager;
 
 class DatabaseHelper
 {
-    public static function bootORM()
+    public static function getAppDatabase()
     {
         $config = Config::$CONFIG['db_settings'];
         $path = $config['database'];

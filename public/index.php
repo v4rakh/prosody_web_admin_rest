@@ -1,5 +1,7 @@
 <?php
 
+use Auth\XmppAdapter;
+use Auth\XmppValidator;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -31,7 +33,7 @@ $container['config'] = function() {
 };
 
 // Database
-$capsule = DatabaseHelper::bootORM();
+$capsule = DatabaseHelper::getAppDatabase();
 $container['db'] = function () use ($capsule) {
     return $capsule;
 };
@@ -47,6 +49,19 @@ $container['logger'] = function () {
     $logger = LoggerHelper::getAppLogger();
     return $logger;
 };
+
+// Auth
+$container['authAdapter'] = function ($container) {
+    $adapter = new XmppAdapter(getenv('xmpp_host'), getenv('xmpp_port'), $container['logger'], getenv('xmpp_connection_type'));
+    return $adapter;
+};
+
+$container['acl'] = function ($c) {
+    return new ACL();
+};
+
+$container->register(new \JeremyKendall\Slim\Auth\ServiceProvider\SlimAuthProvider());
+$app->add($app->getContainer()->get('slimAuthRedirectMiddleware'));
 
 // View
 $container['flash'] = function () {
@@ -67,6 +82,7 @@ $container['view'] = function ($container) use ($translator) {
     }));
     $view['flash'] = $container['flash'];
     $view['config'] = $container['config'];
+    $view['currentUser'] = ($container['authenticator']->hasIdentity() ? $container['authenticator']->getIdentity() : NULL); // currentUser in Twig
     return $view;
 };
 

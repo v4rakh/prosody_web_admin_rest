@@ -47,7 +47,7 @@ final class VerificationAction
             $this->flash->addMessage('error', $this->translator->trans('verification.flash.already_in_use_username', ['%username%' => $userAwaiting->username]));
 
             $userAwaiting->delete();
-            return $response->withRedirect('/signup');
+            return $response->withRedirect('signup');
         } else if ($curl->http_status_code == 201) {
             $this->flash->addMessage('success', $this->translator->trans('verification.flash.success', ['%username%' => $userAwaiting->username]));
             $this->logger->info($this->translator->trans('log.verification.sucess', ['%username%' => $userAwaiting->username]));
@@ -73,7 +73,7 @@ final class VerificationAction
 
             $userRegistered = new UserRegistered();
             $userRegistered->username = $userAwaiting->username;
-            $userRegistered->delete_code = hash('sha256', (time() . $userAwaiting->username . rand()));
+            $userRegistered->generateDeleteCode();
             $userRegistered->save();
 
             $mailer = new PHPMailer();
@@ -97,7 +97,7 @@ final class VerificationAction
             return $response->withRedirect('/');
         } else {
             $this->flash->addMessage('error', $this->translator->trans('verification.flash.unknown_error', ['%username%' => $userAwaiting->username]));
-            $this->logger->warning($this->translator->trans('verification.flash.unknown_error'), ['username' => $userAwaiting->username, 'code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
+            $this->logger->warning($this->translator->trans('log.verification.unknown_error'), ['username' => $userAwaiting->username, 'code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
             return $response->withRedirect('/');
         }
     }

@@ -25,8 +25,17 @@ $container[SignUpAction::class] = function ($c) {
 $container[VerificationAction::class] = function ($c) {
     return new VerificationAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
 };
+$container[LoginAction::class] = function ($c) {
+    return new LoginAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'), $c->get('authenticator'));
+};
+$container[LogoutAction::class] = function ($c) {
+    return new LogoutAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'), $c->get('authenticator'));
+};
 $container[DeleteAction::class] = function ($c) {
     return new DeleteAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'));
+};
+$container[PasswordAction::class] = function ($c) {
+    return new PasswordAction($c->get('view'), $c->get('logger'), $c->get('flash'), $c->get('translator'), $c->get('authenticator'));
 };
 
 // Routes
@@ -40,4 +49,7 @@ $app->get('/500', InternalApplicationError::class)->setName('500');
 $app->get('/', HomeAction::class)->setName('/');
 $app->map(['GET', 'POST'], '/signup', SignUpAction::class)->setName('signup');
 $app->get('/verification/{verificationCode}', VerificationAction::class)->setName('verification');
+$app->map(['GET', 'POST'], '/login', LoginAction::class)->setName('login');
+$app->get('/logout', LogoutAction::class)->setName('logout');
 $app->map(['GET', 'POST'], '/delete', DeleteAction::class)->setName('delete');
+$app->map(['GET', 'POST'], '/password', PasswordAction::class)->setName('password');

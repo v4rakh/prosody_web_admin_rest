@@ -41,7 +41,7 @@ final class DeleteAction
             ]);
             if (!$validator->run($body)) {
                 $validator->addErrorsToFlashMessage($this->flash);
-                return $response->withRedirect('/delete');
+                return $response->withRedirect('delete');
             }
 
             $username = $body['username'];
@@ -52,7 +52,7 @@ final class DeleteAction
 
             if (empty($usersRegistered) || $usersRegistered->count() == 0) {
                 $this->flash->addMessage('error', $this->translator->trans('delete.flash.combination_not_found'));
-                return $response->withRedirect('/delete');
+                return $response->withRedirect('delete');
             } else {
                 $userRegistered = $usersRegistered->pop();
 
@@ -66,11 +66,11 @@ final class DeleteAction
 
                     $this->flash->addMessage('success', $this->translator->trans('delete.flash.success', ['%username%' => $username, '%server%' => getenv('site_xmpp_server_displayname')]));
                     $this->logger->info($this->translator->trans('log.delete.success', ['%username%' => $username]));
-                    return $response->withRedirect('/');
+                    return $response->withRedirect('logout');
                 } else {
                     $this->flash->addMessage('error', $this->translator->trans('delete.flash.unknown_error', ['%username%' => $username]));
-                    $this->logger->error($this->translator->trans('log.delete.flash.unknown_error'), ['username' => $username, 'code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
-                    return $response->withRedirect('/delete');
+                    $this->logger->error($this->translator->trans('log.delete.unknown_error'), ['username' => $username, 'code' => $curl->http_status_code, 'message' => $curl->http_error_message]);
+                    return $response->withRedirect('delete');
                 }
             }
         }

@@ -1,10 +1,15 @@
 # README #
 
-A simple WebUI for [`admin_rest`](https://github.com/snowblindroan/mod_admin_rest) module of prosody allowing 2 step verification of new user accounts (as an alternative to the integrated `register_web` module).
+A simple webinterface for users. This app uses [`admin_rest`](https://github.com/snowblindroan/mod_admin_rest) module of prosody. So [prosody.im](http://prosody.im) is a hard dependency. The interface allows users
+
+* to have two step verification (as an alternative to the integrated `register_web` module),
+* to delete of their accounts and
+* to change their password.
 
 This app uses
 
 * Slim Version 3
+* Slim Auth
 * Eloquent ORM
 * PHPMigration
 * GUMP Validation
@@ -70,6 +75,11 @@ as dependencies.
 This app uses Symfony Translator. It's bootstraped in `Util\TranslationHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
 
 ## Changelog ##
+- 0.1.2:
+    - add authentication after sign up
+    - only logged in users can delete their account (with the help of the token)
+    - only logged in users can change their account password
+
 - 0.1.1:
     - updated readme and `env.example`
     - fix some language validator inconsistencies

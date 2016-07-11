@@ -11,7 +11,9 @@
     "davedevelopment/phpmig": "^1.2",
     "symfony/translation": "^3.1",
     "symfony/twig-bridge": "^3.1",
-    "vlucas/phpdotenv": "^2.3"
+    "vlucas/phpdotenv": "^2.3",
+    "fabiang/xmpp": "^0.6.1",
+    "jeremykendall/slim-auth": "dev-slim-3.x"
   },
   "config": {
     "bin-dir": "bin/"

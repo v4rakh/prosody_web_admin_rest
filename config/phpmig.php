@@ -4,7 +4,7 @@ use \Phpmig\Adapter;
 
 $container = new ArrayObject();
 $container['env'] = EnvironmentHelper::getAppEnvironment();
-$container['db'] = DatabaseHelper::bootORM();
+$container['db'] = DatabaseHelper::getAppDatabase();
 
 $container['phpmig.adapter'] = new Phpmig\Adapter\PDO\Sql($container['db']->getConnection()->getPdo(), 'migrations');
 

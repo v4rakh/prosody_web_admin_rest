@@ -9,7 +9,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../vendor/autoload.php';
  */
 $env = EnvironmentHelper::getAppEnvironment();
 $config = Config::$CONFIG;
-$db = DatabaseHelper::bootORM();
+$db = DatabaseHelper::getAppDatabase();
 $translator = TranslationHelper::getAppTranslator();
 $logger = LoggerHelper::getAppLogger();
 

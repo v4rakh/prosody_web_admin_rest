@@ -45,7 +45,7 @@ final class SignUpAction
             ]);
             if (!$validator->run($body)) {
                 $validator->addErrorsToFlashMessage($this->flash);
-                return $response->withRedirect('/signup');
+                return $response->withRedirect('signup');
             }
 
             $username = $body['username'];
@@ -55,11 +55,11 @@ final class SignUpAction
             // waiting queue
             if ((UserAwaitingVerification::with([])->where('email', $email)->get()->count() > 0)) {
                 $this->flash->addMessage('error', $this->translator->trans('sign.up.flash.already_in_use_email', ['%email%' => $email]));
-                return $response->withRedirect('/signup');
+                return $response->withRedirect('signup');
             }
             if ((UserAwaitingVerification::with([])->where('username', $username)->get()->count() > 0)) {
                 $this->flash->addMessage('error', $this->translator->trans('sign.up.flash.already_in_use_username', ['%username%' => $username]));
-                return $response->withRedirect('/signup');
+                return $response->withRedirect('signup');
             }
 
             // xmpp accounts
@@ -70,7 +70,7 @@ final class SignUpAction
 
             if ($curl->http_status_code != 404) {
                 $this->flash->addMessage('error', $this->translator->trans('sign.up.flash.already_in_use_email_and_username', ['%email%' => $email, '%username%' => $username]));
-                return $response->withRedirect('/signup');
+                return $response->withRedirect('signup');
             }
 
             $userAwaiting = new UserAwaitingVerification();
@@ -117,7 +117,7 @@ final class SignUpAction
 
             $this->flash->addMessage('success', $this->translator->trans('sign.up.flash.success'));
             $this->logger->info($this->translator->trans('log.signed.up', ['%username%' => $userAwaiting->username]));
-            return $response->withRedirect('/signup');
+            return $response->withRedirect('signup');
         }
 
         // render GET

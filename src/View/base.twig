@@ -24,8 +24,15 @@
         <nav id="nav-left">
             <div id="nav-list">
                 <a href="{{ base_url() }}{{ path_for('/') }}">{{ getenv('site_navbar_home_displayname') }}</a>
-                <a href="{{ base_url() }}{{ path_for('signup') }}">{{ getenv('site_navbar_signup_displayname') }}</a>
-                <a href="{{ base_url() }}{{ path_for('delete') }}">{{ getenv('site_navbar_delete_displayname') }}</a>
+
+                <!-- current user -->
+                {% if currentUser is not empty %}
+                    <a href="{{ base_url() }}{{ path_for('password') }}">{{ getenv('site_navbar_password_displayname') }}</a>
+                    <a href="{{ base_url() }}{{ path_for('delete') }}">{{ getenv('site_navbar_delete_displayname') }}</a>
+                {% else %}
+                    <a href="{{ base_url() }}{{ path_for('signup') }}">{{ getenv('site_navbar_signup_displayname') }}</a>
+                    <a href="{{ base_url() }}{{ path_for('login') }}">{{ getenv('site_navbar_login_displayname') }}</a>
+                {% endif %}
 
                 {% if getenv('site_navbar_backlink_enabled') == 'true' %}
                     <br />
@@ -36,8 +43,14 @@
             </div>
 
             <!-- Nav footer -->
+            <!-- current user show -->
+            {% if currentUser is not empty %}
             <footer>
+                {% trans with {'%username%': currentUser.identity, '%server%': getenv('site_xmpp_server_displayname') } %}logged.in.site{% endtrans %}
+                <a href="{{ base_url() }}{{ path_for('logout') }}">{{ getenv('site_navbar_logout_displayname') }}</a>
             </footer>
+            {% endif %}
+
 
         </nav>
 
