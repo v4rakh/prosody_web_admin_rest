@@ -7,9 +7,9 @@
         <label for="username">{% trans %}delete.form.username{% endtrans %}</label><br/>
         <input type="text" id="username" name="username" class="" placeholder="{% trans %}delete.form.username.placeholder{% endtrans %}" value="" autofocus required> @{{ getenv('site_xmpp_server_displayname') }}
         <br/><br/>
-        <label for="deletion_code">{% trans %}delete.form.delete_code{% endtrans %}</label><br/>
+        <label for="delete_code">{% trans %}delete.form.delete_code{% endtrans %}</label><br/>
         <input type="text" id="delete_code" name="delete_code" class="" placeholder="{% trans %}delete.form.delete_code.placeholder{% endtrans %}" value="" autofocus required>
         <br/><br/>
-        <input class="" type="submit" name="delete" value="{% trans %}delete.form.button{% endtrans %}"/>
+        <input class="" type="submit" name="delete_button" value="{% trans %}delete.form.button{% endtrans %}"/>
     </form>
 {% endblock %}

@@ -33,7 +33,7 @@ final class PasswordAction
         if ($request->isPost()) {
 
             // Form validation
-            $validator = new Validator();
+            $validator = new ValidationHelper();
             $validator->validation_rules([
                 'password'     => 'required|max_len,255|min_len,8',
                 'password_confirmation' => 'required|max_len,255|min_len,8',

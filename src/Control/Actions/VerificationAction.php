@@ -49,7 +49,7 @@ final class VerificationAction
             $userAwaiting->delete();
             return $response->withRedirect('signup');
         } else if ($curl->http_status_code == 201) {
-            $this->flash->addMessage('success', $this->translator->trans('verification.flash.success', ['%username%' => $userAwaiting->username]));
+            $this->flash->addMessage('success', $this->translator->trans('verification.flash.success', ['%username%' => $userAwaiting->username, '%server%' => getenv('site_xmpp_server_displayname')]));
             $this->logger->info($this->translator->trans('log.verification.sucess', ['%username%' => $userAwaiting->username]));
 
             if (getenv('mail_notify') == true) {

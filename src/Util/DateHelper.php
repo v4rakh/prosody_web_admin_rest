@@ -6,6 +6,7 @@ class DateHelper
 {
     /**
      * Returns param if already carbon, else formats with Y-m-d H:i:s
+     *
      * @param $date
      * @return Carbon|false
      */

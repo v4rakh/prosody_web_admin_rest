@@ -27,8 +27,6 @@ class Config
             ],
 
             'logger_settings' => [
-                'level' => Logger::DEBUG,
-                'name' => 'application',
                 'path' => __DIR__ . DIRECTORY_SEPARATOR . '..'. DIRECTORY_SEPARATOR .'log'. DIRECTORY_SEPARATOR .'application.log',
             ],
         ];

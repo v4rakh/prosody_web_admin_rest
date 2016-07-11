@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    <form class="" role="form" name="register" id="register" method="post">
+    <form class="" role="form" name="signup" id="signup" method="post">
         <h1>{{ title }}</h1>
 
         <label for="username">{% trans %}sign.up.form.username{% endtrans %}</label><br/>
@@ -13,6 +13,6 @@
         <label for="password">{% trans %}sign.up.form.password{% endtrans %}</label><br/>
         <input type="password" id="password" name="password" class="form-control" placeholder="{% trans %}sign.up.form.password.placeholder{% endtrans %}" required>
         <br/><br/>
-        <input class="" type="submit" name="signup" value="{% trans %}sign.up.form.button{% endtrans %}"/>
+        <input class="" type="submit" name="signup_button" value="{% trans %}sign.up.form.button{% endtrans %}"/>
     </form>
 {% endblock %}

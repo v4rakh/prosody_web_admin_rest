@@ -30,7 +30,7 @@ final class DeleteAction
         if ($request->isPost()) {
 
             // Form validation
-            $validator = new Validator();
+            $validator = new ValidationHelper();
             $validator->filter_rules([
                 'username'     => 'trim|sanitize_string',
                 'delete_code'  => 'trim|sanitize_string',

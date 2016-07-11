@@ -33,7 +33,7 @@ final class SignUpAction
         if ($request->isPost()) {
 
             // Form validation
-            $validator = new Validator();
+            $validator = new ValidationHelper();
             $validator->filter_rules([
                 'username'     => 'trim|sanitize_string',
                 'email'        => 'trim|sanitize_email',

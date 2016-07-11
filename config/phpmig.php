@@ -3,8 +3,8 @@
 use \Phpmig\Adapter;
 
 $container = new ArrayObject();
-$container['env'] = EnvironmentHelper::getAppEnvironment();
-$container['db'] = DatabaseHelper::getAppDatabase();
+$container['env'] = BootstrapHelper::bootEnvironment();
+$container['db'] = BootstrapHelper::bootDatabase();
 
 $container['phpmig.adapter'] = new Phpmig\Adapter\PDO\Sql($container['db']->getConnection()->getPdo(), 'migrations');
 

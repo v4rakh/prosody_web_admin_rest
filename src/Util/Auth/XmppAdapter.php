@@ -7,7 +7,6 @@ use Fabiang\Xmpp\Client;
 use Fabiang\Xmpp\Exception\Stream\AuthenticationErrorException;
 use Fabiang\Xmpp\Options;
 use Psr\Log\LoggerInterface;
-use UserRegistered;
 use Zend\Authentication\Adapter\AbstractAdapter;
 use Zend\Authentication\Result;
 
@@ -64,12 +63,6 @@ class XmppAdapter extends AbstractAdapter
         $client = new Client($options);
 
         try {
-            /*$userRegistered = UserRegistered::with([])->find($this->getIdentity());
-
-            if (empty($userRegistered)) {
-                throw new AuthenticationErrorException;
-            }*/
-
             $client->connect();
 
         } catch (AuthenticationErrorException $e) {

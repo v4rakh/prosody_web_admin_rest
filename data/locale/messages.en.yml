@@ -26,7 +26,7 @@ verification.mail.body: |
   In order to complete your registration, verify your email within 7 days by clicking on %verificationLink%.
 verification.code.invalid: Verification code %verificationCode% is not valid.
 verification.flash.already_in_use_username: %username% is already in use.
-verification.flash.success: Verification successful. You can now sign in to your newly created jabber account %username%@hoth.one.
+verification.flash.success: Verification successful. You can now sign in to your newly created jabber account %username%@%server%.
 verification.flash.unknown_error: Could not process sign up of %username%. Please contact administrator.
 verification.mail.success.subject: %server%: jabber account information
 verification.mail.success.body: |

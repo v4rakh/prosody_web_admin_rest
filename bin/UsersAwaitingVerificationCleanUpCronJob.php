@@ -7,11 +7,11 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . '../vendor/autoload.php';
 /*
  * Bootstrap environment, configs and database
  */
-$env = EnvironmentHelper::getAppEnvironment();
+$env = BootstrapHelper::bootEnvironment();
 $config = Config::$CONFIG;
-$db = DatabaseHelper::getAppDatabase();
-$translator = TranslationHelper::getAppTranslator();
-$logger = LoggerHelper::getAppLogger();
+$db = BootstrapHelper::bootDatabase();
+$translator = BootstrapHelper::bootTranslator();
+$logger = BootstrapHelper::bootLogger();
 
 // handle all users awaiting verification and notify them
 $users = UserAwaitingVerification::all();

@@ -22,7 +22,7 @@ $app = new Slim\App(['settings' => Config::$CONFIG['slim_settings']]);
 $container = $app->getContainer();
 
 // Environment
-$env = EnvironmentHelper::getAppEnvironment();
+$env = BootstrapHelper::bootEnvironment();
 $container['env'] = function() use ($env) {
     return $env;
 };
@@ -33,20 +33,20 @@ $container['config'] = function() {
 };
 
 // Database
-$capsule = DatabaseHelper::getAppDatabase();
+$capsule = BootstrapHelper::bootDatabase();
 $container['db'] = function () use ($capsule) {
     return $capsule;
 };
 
 // Translation
-$translator = TranslationHelper::getAppTranslator();
+$translator = BootstrapHelper::bootTranslator();
 $container['translator'] = function () use ($translator) {
     return $translator;
 };
 
 // Logger
 $container['logger'] = function () {
-    $logger = LoggerHelper::getAppLogger();
+    $logger = BootstrapHelper::bootLogger();
     return $logger;
 };
 

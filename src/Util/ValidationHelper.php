@@ -4,13 +4,13 @@
  * Class Validator
  * @see Gump for use
  */
-class Validator extends GUMP
+class ValidationHelper extends GUMP
 {
     private $translator;
 
     public function __construct()
     {
-        $this->translator = TranslationHelper::getAppTranslator();
+        $this->translator = BootstrapHelper::bootTranslator();
     }
 
     /** Validates if $field content is equal to $param
