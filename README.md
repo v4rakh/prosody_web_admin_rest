@@ -75,10 +75,13 @@ as dependencies.
 This app uses Symfony Translator. It's bootstraped in `Util\TranslationHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
 
 ## Changelog ##
-- 0.1.2:
+- 0.1.3:
     - add authentication after sign up
     - only logged in users can delete their account (with the help of the token)
     - only logged in users can change their account password
+
+- 0.1.2:
+    - Bugfixes
 
 - 0.1.1:
     - updated readme and `env.example`
