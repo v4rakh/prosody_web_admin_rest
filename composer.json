@@ -13,7 +13,8 @@
     "symfony/twig-bridge": "^3.1",
     "vlucas/phpdotenv": "^2.3",
     "fabiang/xmpp": "^0.6.1",
-    "jeremykendall/slim-auth": "dev-slim-3.x"
+    "jeremykendall/slim-auth": "dev-slim-3.x",
+    "symfony/yaml": "*"
   },
   "config": {
     "bin-dir": "bin/"
