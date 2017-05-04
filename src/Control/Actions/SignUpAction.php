@@ -48,7 +48,7 @@ final class SignUpAction
                 return $response->withRedirect('signup');
             }
 
-            $username = $body['username'];
+            $username = trim(strtolower($body['username']));
             $email = trim(strtolower($body['email']));
             $password = $body['password'];
 
