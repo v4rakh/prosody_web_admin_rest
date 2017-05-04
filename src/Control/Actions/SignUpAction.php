@@ -49,7 +49,7 @@ final class SignUpAction
             }
 
             $username = $body['username'];
-            $email = $body['email'];
+            $email = trim(strtolower($body['email']));
             $password = $body['password'];
 
             // waiting queue

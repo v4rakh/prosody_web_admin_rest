@@ -45,7 +45,7 @@ final class LoginAction
                 return $response->withRedirect('/login');
             }
 
-            $username = $body['username'];
+            $username = trim(strtolower($body['username']));
             $password = $body['password'];
 
             $result = $this->auth->authenticate($username, $password);
