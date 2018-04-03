@@ -34,8 +34,6 @@ as dependencies.
 * Copy `config/env.example` to `config/env` and adjust to your needs
 * `composer install`
 * `php bin/phpmig migrate`
-* start server with `php -S localhost:8080 -t public public/index.php`
-* point browser to [localhost:8080](http://localhost:8080) to have a preview
 
 ## Deployment ##
 
@@ -71,6 +69,10 @@ as dependencies.
 * `composer update`
 * `php bin/phpmig migrate`
 * look into Changelog for major changes
+
+## Developers ##
+* start server with `php -S localhost:8080 -t public public/index.php`
+* point browser to [localhost:8080](http://localhost:8080) to have a preview
 
 ## Translations ##
 This app uses Symfony Translator. It's bootstraped in `Util\BootstrapHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
