@@ -1,6 +1,6 @@
 # README #
 
-A simple webinterface for users. This app uses [`admin_rest`](https://github.com/snowblindroan/mod_admin_rest) module of prosody. So [prosody.im](http://prosody.im) is a hard dependency. The interface allows users
+A simple webinterface for users. This app uses [`admin_rest`](https://github.com/snowblindroan/mod_admin_rest) module of prosody. So [prosody.im](http://prosody.im) and this module are hard dependencies. The interface allows users
 
 * to have two step verification (as an alternative to the integrated `register_web` module),
 * to delete of their accounts and
