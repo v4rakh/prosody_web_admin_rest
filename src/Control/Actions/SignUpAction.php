@@ -42,6 +42,7 @@ final class SignUpAction
                 'username'     => 'required|alpha_numeric|max_len,64|min_len,3',
                 'email'        => 'required|valid_email|max_len,64|min_len,5',
                 'password'     => 'required|max_len,255|min_len,8',
+                'legal'        => 'required|boolean'
             ]);
             if (!$validator->run($body)) {
                 $validator->addErrorsToFlashMessage($this->flash);

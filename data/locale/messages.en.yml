@@ -11,12 +11,32 @@ sign.up.flash.already_in_use_email_and_username: "%username%/%email% is already 
 sign.up.flash.already_in_use_email: "%email% is already in use."
 sign.up.flash.already_in_use_username: "%username% is already in use."
 sign.up.form.button: Sign up
-sign.up.form.username: Username:
-sign.up.form.username.placeholder: username
+sign.up.form.username: Nickname:
+sign.up.form.username.placeholder: nickname
 sign.up.form.email: Email (only used for one time email verification, not persisted further):
 sign.up.form.email.placeholder: xyz@domain.tld
 sign.up.form.password: Password:
 sign.up.form.password.placeholder: Password:
+sign.up.form.legalmodal.open: I've read the privacy policy and I agree to it.
+sign.up.form.legalmodal.header: Privacy Policy
+sign.up.form.legalmodal.text: |
+  <h5>Signing up process</h5>
+  <ul>
+    <li>Email (maximal: 7 days, typical: deleted after verification process is completed)</li>
+    <li>Credentials (minimal: stored as long as the account exists, typical: check user JID against well-known spammer patterns)</li>
+  </ul>
+
+  <h5>Using the service</h5>
+  <ul>
+    <li><a href="https://wiki.xmpp.org/web/GDPR#Q1.1b_List_what_data_is_processed">What data is processed?</a></li>
+    <li><a href="https://wiki.xmpp.org/web/GDPR#Q1.1c_List_what_processing_is_done">How is data processing done?</a></li>
+  </ul>
+
+  <h5>General</h5>
+  <ul>
+    <li>I agree that accepting the privacy policy is required in order to use the service.</li>
+    <li>I agree to not sue the operator of this (free) service for any misconfiguration concering any data protection laws (e.g. the General Data Protection Regulation).</li>
+  </ul>
 
 # Verification
 verification.mail.subject: "%server%: jabber account verification"

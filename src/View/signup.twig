@@ -12,7 +12,20 @@
         <br/><br/>
         <label for="password">{% trans %}sign.up.form.password{% endtrans %}</label><br/>
         <input type="password" id="password" name="password" class="form-control" placeholder="{% trans %}sign.up.form.password.placeholder{% endtrans %}" required>
+
+        <br/><br/>
+
+        <!-- Link to open the modal -->
+        <input type="checkbox" id="legal" name="legal" class="form-control" /><a href="#legalModal" rel="modal:open">{% trans %}sign.up.form.legalmodal.open{% endtrans %}</a>
+
         <br/><br/>
         <input class="" type="submit" name="signup_button" value="{% trans %}sign.up.form.button{% endtrans %}"/>
     </form>
+
+    <!-- legal modal -->
+    <div id="legalModal" class="modal">
+        <h1>{% trans %}sign.up.form.legalmodal.header{% endtrans %}</h1>
+        <p>{{ 'sign.up.form.legalmodal.text'|trans|raw }}</p>
+    </div>
+
 {% endblock %}
