@@ -11,8 +11,8 @@ sign.up.flash.already_in_use_email_and_username: "%username%/%email% is already 
 sign.up.flash.already_in_use_email: "%email% is already in use."
 sign.up.flash.already_in_use_username: "%username% is already in use."
 sign.up.form.button: Sign up
-sign.up.form.username: Nickname:
-sign.up.form.username.placeholder: nickname
+sign.up.form.username: Username:
+sign.up.form.username.placeholder: username
 sign.up.form.email: Email (only used for one time email verification, not persisted further):
 sign.up.form.email.placeholder: xyz@domain.tld
 sign.up.form.password: Password:
@@ -52,7 +52,6 @@ verification.mail.success.subject: "%server%: jabber account information"
 verification.mail.success.body: |
   Hello %username%,
   you've verified your email address successfully and your jabber account on %server% has been created.
-  Your password is "%password%".
   If you wish to delete your account, use %deleteCode% on the website.
   Keep this mail safe!
 verification.mail.success.notify.subject: "%server%: user verified their account"

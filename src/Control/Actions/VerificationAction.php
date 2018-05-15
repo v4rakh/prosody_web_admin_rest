@@ -90,7 +90,7 @@ final class VerificationAction
             $mailer->FromName = getenv('mail_from_name');
             $mailer->addAddress($userAwaiting->email);
             $mailer->Subject = $this->translator->trans('verification.mail.success.subject', ['%server%' => getenv('site_xmpp_server_displayname')]);
-            $mailer->Body = $this->translator->trans('verification.mail.success.body', ['%username%' => $userAwaiting->username, '%server%' => getenv('site_xmpp_server_displayname'), '%password%' => $userAwaiting->password, '%deleteCode%' => $userRegistered->delete_code]);
+            $mailer->Body = $this->translator->trans('verification.mail.success.body', ['%username%' => $userAwaiting->username, '%server%' => getenv('site_xmpp_server_displayname'), '%deleteCode%' => $userRegistered->delete_code]);
             $mailer->send();
 
             $userAwaiting->delete();
