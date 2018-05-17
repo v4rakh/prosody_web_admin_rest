@@ -1,31 +1,62 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    <form class="" role="form" name="signup" id="signup" method="post">
-        <h1>{{ title }}</h1>
+    <form role="form" name="signup" id="signup" method="post">
+        <div class="control-group form-group">
+            <h1>{{ title }}</h1>
 
-        <label for="username">{% trans %}sign.up.form.username{% endtrans %}</label><br/>
-        <input type="text" id="username" name="username" class="" placeholder="{% trans %}sign.up.form.username.placeholder{% endtrans %}" value="" autofocus required> @{{ getenv('site_xmpp_server_displayname') }}
-        <br/><br/>
-        <label for="email">{% trans %}sign.up.form.email{% endtrans %}</label><br/>
-        <input type="text" id="email" name="email" class="" placeholder="{% trans %}sign.up.form.email.placeholder{% endtrans %}" value="" autofocus required>
-        <br/><br/>
-        <label for="password">{% trans %}sign.up.form.password{% endtrans %}</label><br/>
-        <input type="password" id="password" name="password" class="form-control" placeholder="{% trans %}sign.up.form.password.placeholder{% endtrans %}" required>
+            <div class="form-group row">
+                <label class="col-2 col-form-label" for="username">{% trans %}sign.up.form.username{% endtrans %}</label>
 
-        <br/><br/>
+                <div class="col-7">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="{% trans %}sign.up.form.username.placeholder{% endtrans %}" value="" autofocus required>
+                </div>
+                <div class="col-3">
+                    @{{ getenv('site_xmpp_server_displayname') }}
+                </div>
+            </div>
 
-        <!-- Link to open the modal -->
-        <input type="checkbox" id="legal" name="legal" class="form-control" /><a href="#legalModal" rel="modal:open">{% trans %}sign.up.form.legalmodal.open{% endtrans %}</a>
+            <div class="form-group row">
+                <label class="col-2 col-form-label" for="email">{% trans %}sign.up.form.email{% endtrans %}</label>
 
-        <br/><br/>
-        <input class="" type="submit" name="signup_button" value="{% trans %}sign.up.form.button{% endtrans %}"/>
+                <div class="col-10">
+                    <input aria-describedby="help" type="text" id="email" name="email" class="form-control" placeholder="{% trans %}sign.up.form.email.placeholder{% endtrans %}" value="" autofocus required>
+                    <small id="help" class="form-text text-muted">{% trans %}sign.up.form.email.help{% endtrans %}</small>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label" for="password">{% trans %}sign.up.form.password{% endtrans %}</label>
+
+                <div class="col-10">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="{% trans %}sign.up.form.password.placeholder{% endtrans %}" required>
+                </div>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="legal" name="legal" class="form-check-input" />
+                <label class="form-check-label" for="legal"><a href="#" data-target="#legalModal" data-toggle="modal">{% trans %}sign.up.form.legalmodal.open{% endtrans %}</a></label>
+            </div>
+            <br />
+            <input class="btn btn-primary" type="submit" name="signup_button" value="{% trans %}sign.up.form.button{% endtrans %}"/>
+        </div>
     </form>
 
     <!-- legal modal -->
-    <div id="legalModal" class="modal">
-        <h1>{% trans %}sign.up.form.legalmodal.header{% endtrans %}</h1>
-        <p>{{ 'sign.up.form.legalmodal.text'|trans|raw }}</p>
+    <div class="modal fade" id="legalModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{% trans %}sign.up.form.legalmodal.header{% endtrans %}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ 'sign.up.form.legalmodal.text'|trans|raw }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

@@ -1,8 +1,10 @@
 # Home
 home.title: Home
 home.text: |
-  Hi,
-  welcome to the free jabber service %server%. Sign up now by clicking the "Sign up" button in the navigation bar.
+  Welcome to the free jabber service %server%.
+  <br />
+  <br />
+  Create an account by pressing the <i>"Sign up"</i> button in the navigation bar.
 
 # Sign up
 sign.up.title: Sign Up
@@ -11,12 +13,13 @@ sign.up.flash.already_in_use_email_and_username: "%username%/%email% is already 
 sign.up.flash.already_in_use_email: "%email% is already in use."
 sign.up.flash.already_in_use_username: "%username% is already in use."
 sign.up.form.button: Sign up
-sign.up.form.username: Username:
+sign.up.form.username: Username
 sign.up.form.username.placeholder: username
-sign.up.form.email: Email (only used for one time email verification, not persisted further):
+sign.up.form.email: Email
+sign.up.form.email.help: Only used for one time email verification, not persisted further.
 sign.up.form.email.placeholder: xyz@domain.tld
-sign.up.form.password: Password:
-sign.up.form.password.placeholder: Password:
+sign.up.form.password: Password
+sign.up.form.password.placeholder: password
 sign.up.form.legalmodal.open: I've read the privacy policy and I agree to it.
 sign.up.form.legalmodal.header: Privacy Policy
 sign.up.form.legalmodal.text: |
@@ -59,10 +62,11 @@ verification.mail.success.notify.body: A user (%email%) verified their account %
 
 # Delete
 delete.title: Delete Account
-delete.form.username: Username:
+delete.form.username: Username
 delete.form.username.placeholder: username
-delete.form.delete_code: Deletion Code:
-delete.form.delete_code.placeholder: received via mail on sign up, 32 in length
+delete.form.delete_code: Deletion Code
+delete.form.delete_code.placeholder: delete code
+delete.form.delete_code.help: You should have received the code after your registration process. It is 32 in length. If you haven't, please contact the operator.
 delete.form.button: Delete
 delete.flash.combination_not_found: Could not find a combination match for username and delete code.
 delete.flash.success: Successfully deleted your account %username%@%server%.
@@ -71,24 +75,24 @@ delete.flash.unknown_error: Could not process deletion of %username%. Please con
 # Password
 password.title: Change password
 password.form.button: Change password
-password.form.password: Password:
+password.form.password: Password
 password.form.password.placeholder: password
-password.form.password_confirmation: Password confirmation:
+password.form.password_confirmation: Password confirmation
 password.form.password_confirmation.placeholder: password confirmation
 password.flash.not_the_same: Passwords do not match.
 password.flash.success: Successfully changed your password.
 password.flash.unknown_error: Could not process password change of %username%. Please contact administrator.
 
 # Login
-logged.in.site: Logged in as %username%@%server%
+logged.in.site: (%username%@%server%)
 login.title: Login
 login.flash.success: Logged in as %username%@%server% successfully.
 login.flash.wrong_credentials: Cannot login. Wrong credentials.
 login.form.button: Login
-login.form.username: Username:
+login.form.username: Username
 login.form.username.placeholder: username
-login.form.password: Password:
-login.form.password.placeholder: Password:
+login.form.password: Password
+login.form.password.placeholder: password
 
 # Logout
 logout.title: Logout
