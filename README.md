@@ -78,6 +78,12 @@ as dependencies.
 This app uses Symfony Translator. It's bootstraped in `Util\BootstrapHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
 
 ## Changelog ##
+- 0.1.3.3 to 0.2.0.0
+    - update to latest yaml
+    - Force to lower on email and username
+    - Update README and htaccess for Apache
+    - Change to bootstrap4 theme
+    - Add legal information hint on sign up page
 - 0.1.3.2:
     - Refactor
     - Bugfixes
