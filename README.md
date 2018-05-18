@@ -32,6 +32,7 @@ as dependencies.
 * Install composer
 * Change directory to project home
 * Copy `config/env.example` to `config/env` and adjust to your needs
+* Copy `config/legal.example.md` to `config/legal.md` and adjust to your needs
 * `composer install`
 * `php bin/phpmig migrate`
 
@@ -78,6 +79,9 @@ as dependencies.
 This app uses Symfony Translator. It's bootstraped in `Util\BootstrapHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
 
 ## Changelog ##
+- 0.2.0.1
+    - Design fixes
+    - GDPR adjustments (specify agreement in a `.md` file)
 - 0.1.3.3 to 0.2.0.0
     - update to latest yaml
     - Force to lower on email and username

@@ -35,7 +35,7 @@
 
             <div class="form-check">
                 <input type="checkbox" id="legal" name="legal" class="form-check-input" />
-                <label class="form-check-label" for="legal"><a href="#" data-target="#legalModal" data-toggle="modal">{% trans %}sign.up.form.legalmodal.open{% endtrans %}</a></label>
+                <label class="form-check-label" for="legal"><a href="#" data-target="#legalModal" data-toggle="modal">{% trans %}legalmodal.open{% endtrans %}</a></label>
             </div>
             <br />
             <input class="btn btn-primary" type="submit" name="signup_button" value="{% trans %}sign.up.form.button{% endtrans %}"/>
@@ -47,13 +47,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{% trans %}sign.up.form.legalmodal.header{% endtrans %}</h5>
+                    <h5 class="modal-title">{% trans %}legalmodal.title{% endtrans %}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>{{ 'sign.up.form.legalmodal.text'|trans|raw }}</p>
+                    <p>{{ legal|markdown }}</p>
                 </div>
             </div>
         </div>

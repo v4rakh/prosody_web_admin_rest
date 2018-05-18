@@ -20,26 +20,14 @@ sign.up.form.email.help: Only used for one time email verification, not persiste
 sign.up.form.email.placeholder: xyz@domain.tld
 sign.up.form.password: Password
 sign.up.form.password.placeholder: password
-sign.up.form.legalmodal.open: I've read the privacy policy and I agree to it.
-sign.up.form.legalmodal.header: Privacy Policy
-sign.up.form.legalmodal.text: |
-  <h5>Signing up process</h5>
-  <ul>
-    <li>Email (maximal: 7 days, typical: deleted after verification process is completed)</li>
-    <li>Credentials (minimal: stored as long as the account exists, typical: check user JID against well-known spammer patterns)</li>
-  </ul>
 
-  <h5>Using the service</h5>
-  <ul>
-    <li><a href="https://wiki.xmpp.org/web/GDPR#Q1.1b_List_what_data_is_processed">What data is processed?</a></li>
-    <li><a href="https://wiki.xmpp.org/web/GDPR#Q1.1c_List_what_processing_is_done">How is data processing done?</a></li>
-  </ul>
+# Legal modal
+legalmodal.open: I've read the agreement and I agree to it.
+legalmodal.title: Agreement
 
-  <h5>General</h5>
-  <ul>
-    <li>I agree that accepting the privacy policy is required in order to use the service.</li>
-    <li>I agree to not sue the operator of this (free) service for any misconfiguration concering any data protection laws (e.g. the General Data Protection Regulation).</li>
-  </ul>
+# Cookie modal
+cookiemodal.dismiss: "OK"
+cookiemodal.message: "This website uses cookies to ensure you get the best experience."
 
 # Verification
 verification.mail.subject: "%server%: jabber account verification"

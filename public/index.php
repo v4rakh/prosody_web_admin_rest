@@ -2,6 +2,8 @@
 
 use Auth\XmppAdapter;
 use Auth\XmppValidator;
+use Jralph\Twig\Markdown\Extension;
+use Jralph\Twig\Markdown\Parsedown\ParsedownExtraMarkdown;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -83,6 +85,9 @@ $container['view'] = function ($container) use ($translator) {
     $view['flash'] = $container['flash'];
     $view['config'] = $container['config'];
     $view['currentUser'] = ($container['authenticator']->hasIdentity() ? $container['authenticator']->getIdentity() : NULL); // currentUser in Twig
+    $view->addExtension(new Extension( // markdown
+        new ParsedownExtraMarkdown
+    ));
     return $view;
 };
 

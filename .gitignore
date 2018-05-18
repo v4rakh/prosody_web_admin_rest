@@ -11,6 +11,7 @@ composer.phar
 
 # do not commit environment vars
 config/env
+config/legal.md
 
 # only keep folder
 cache/*

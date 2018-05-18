@@ -9,6 +9,7 @@
         <!-- CSS & fonts -->
         <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ base_url() }}/css/font-awesome.css">
+        <link rel="stylesheet" href="{{ base_url() }}/css/cookieconsent.min.css" />
 
         <!-- Custom styles for this template -->
         <style>
@@ -23,8 +24,7 @@
 
         #container {
             margin-top: 56px;
-            margin-left: 10px;
-            margin-right: 10px;
+            overflow-x: hidden;
         }
         </style>
     </head>
@@ -84,9 +84,8 @@
 
         <!-- Main content -->
         <div id="container">
-
             <div class="row">
-                <div class="col-md-7 mx-auto">
+                <div class="col-md-6 mx-auto">
                     {% if flash is not empty %}
                         <div id="flashMessage">
                             {% if flash.getMessage('info').0 %}
@@ -114,7 +113,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-7 mx-auto">
+                <div class="col-md-6 mx-auto">
                     {% block content %}
                     {% endblock %}
                 </div>
@@ -130,6 +129,26 @@
             $(".alert-success" ).delay(10000).fadeOut(300);
             $(".alert-info" ).delay(10000).fadeOut(300);
         </script>
+
+    <script src="{{ base_url() }}/js/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#252e39"
+                    },
+                    "button": {
+                        "background": "#14a7d0"
+                    }
+                },
+                "content": {
+                    "message": "{{ 'cookiemodal.message'|trans }}",
+                    "dismiss": "{{ 'cookiemodal.dismiss'|trans }}",
+                    "href": "/signup"
+                }
+            })});
+    </script>
 
     </body>
 </html>

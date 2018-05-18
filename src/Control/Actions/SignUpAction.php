@@ -121,9 +121,19 @@ final class SignUpAction
             return $response->withRedirect('signup');
         }
 
+        // legal information
+        $legalFilePath = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
+
+        if ($legalFile = file_exists($legalFilePath . 'legal.md')) {
+            $legalFileContent = file_get_contents($legalFilePath . 'legal.md');
+        } else {
+            $legalFileContent = file_get_contents($legalFilePath . 'legal.example.md');
+        }
+
         // render GET
         $this->view->render($response, 'signup.twig', [
             'title'     => $this->translator->trans('sign.up.title'),
+            'legal' => $legalFileContent
         ]);
 
         return $response;
