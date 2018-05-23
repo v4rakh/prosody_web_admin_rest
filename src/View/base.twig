@@ -9,7 +9,7 @@
     <!-- CSS & fonts -->
     <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ base_url() }}/css/font-awesome.css">
-    <link rel="stylesheet" href="{{ base_url() }}/css/cookieconsent.min.css"/>
+    <link rel="stylesheet" href="{{ base_url() }}/css/cookie.min.css"/>
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ base_url() }}/css/custom.css"/>
@@ -117,10 +117,56 @@
 <!-- Script -->
 <script src="{{ base_url() }}/js/jquery.min.js"></script>
 <script src="{{ base_url() }}/js/bootstrap.bundle.min.js"></script>
-<script src="{{ base_url() }}/js/cookieconsent.min.js"></script>
+<script>
+    $(".alert-danger").delay(30000).fadeOut(300);
+    $(".alert-success").delay(10000).fadeOut(300);
+    $(".alert-info").delay(10000).fadeOut(300);
+</script>
 
-<!-- Custom Script -->
-<script src="{{ base_url() }}/js/custom.js"></script>
+<!-- Cookie -->
+<script src="{{ base_url() }}/js/cookie.min.js"></script>
+<script>
+    window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#252e39"
+                },
+                "button": {
+                    "background": "#14a7d0"
+                }
+            },
+            "content": {
+                "message": "{{ 'cookie.message'|trans }}",
+                "dismiss": "{{ 'cookie.dismiss'|trans }}",
+                "deny": "{{ 'cookie.deny'|trans }}",
+                "link": "{{ 'cookie.more'|trans }}",
+                "href": "/signup"
+            },
+            "type": "opt-out",
+            onStatusChange: function(status, chosenBefore) {
+                var type = this.options.type;
+                var didConsent = this.hasConsented();
+
+                if (type === 'opt-out' && !didConsent) {
+                    console.log('Opting out of cookies, at least for non HttpOnly');
+
+                    // deleting cookies
+                    var cookies = document.cookie.split(";");
+
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i];
+                        var eqPos = cookie.indexOf("=");
+                        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+                    }
+
+                    window.location.replace("about:blank");
+                }
+            }
+        })
+    });
+</script>
 
 </body>
 </html>

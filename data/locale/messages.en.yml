@@ -26,8 +26,10 @@ legalmodal.open: I've read the agreement and I agree to it.
 legalmodal.title: Agreement
 
 # Cookie modal
-cookiemodal.dismiss: "OK"
-cookiemodal.message: "This website uses cookies to ensure you get the best experience."
+cookie.message: "Cookies are required for this website in order to check the login status. Those will be deleted once you end your browser session. Other cookies are not set. OK?"
+cookie.more: "Learn more in the privacy policy!"
+cookie.dismiss: "Yes!"
+cookie.deny: "No."
 
 # Verification
 verification.mail.subject: "%server%: jabber account verification"
