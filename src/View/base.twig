@@ -1,154 +1,126 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>{{ title }}</title>
-        <!-- Meta -->
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<head>
+    <title>{{ title }}</title>
+    <!-- Meta -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-        <!-- CSS & fonts -->
-        <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ base_url() }}/css/font-awesome.css">
-        <link rel="stylesheet" href="{{ base_url() }}/css/cookieconsent.min.css" />
+    <!-- CSS & fonts -->
+    <link rel="stylesheet" href="{{ base_url() }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/font-awesome.css">
+    <link rel="stylesheet" href="{{ base_url() }}/css/cookieconsent.min.css"/>
 
-        <!-- Custom styles for this template -->
-        <style>
-        body {
-            padding-top: 54px;
-        }
-        @media (min-width: 992px) {
-            body {
-              padding-top: 56px;
-            }
-        }
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ base_url() }}/css/custom.css"/>
+</head>
+<body>
 
-        #container {
-            margin-top: 56px;
-            overflow-x: hidden;
-        }
-        </style>
-    </head>
-    <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
         <a class="navbar-brand" href="{{ base_url() }}{{ path_for('/') }}">{{ getenv('site_title') }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">
 
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ base_url() }}{{ path_for('/') }}">{{ getenv('site_navbar_home_displayname') }}</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{{ base_url() }}{{ path_for('/') }}">{{ getenv('site_navbar_home_displayname') }}</a>
+                </li>
 
-              <!-- current user -->
-              {% if currentUser is not empty %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ base_url() }}{{ path_for('password') }}">{{ getenv('site_navbar_password_displayname') }}</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ base_url() }}{{ path_for('delete') }}">{{ getenv('site_navbar_delete_displayname') }}</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ base_url() }}{{ path_for('signup') }}">{{ getenv('site_navbar_signup_displayname') }}</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ base_url() }}{{ path_for('login') }}">{{ getenv('site_navbar_login_displayname') }}</a>
-                  </li>
-              {% endif %}
+                <!-- current user -->
+                {% if currentUser is not empty %}
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ base_url() }}{{ path_for('password') }}">{{ getenv('site_navbar_password_displayname') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ base_url() }}{{ path_for('delete') }}">{{ getenv('site_navbar_delete_displayname') }}</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ base_url() }}{{ path_for('signup') }}">{{ getenv('site_navbar_signup_displayname') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ base_url() }}{{ path_for('login') }}">{{ getenv('site_navbar_login_displayname') }}</a>
+                    </li>
+                {% endif %}
 
-              {% if getenv('site_navbar_backlink_enabled') == 'true' %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ getenv('site_navbar_backlink_uri') }}">{{ getenv('site_navbar_backlink_displayname') }}</a>
-                  </li>
-              {% endif %}
+                {% if getenv('site_navbar_backlink_enabled') == 'true' %}
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ getenv('site_navbar_backlink_uri') }}">{{ getenv('site_navbar_backlink_displayname') }}</a>
+                    </li>
+                {% endif %}
 
-              {% if currentUser is not empty %}
+                {% if currentUser is not empty %}
 
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ base_url() }}{{ path_for('logout') }}">{{ getenv('site_navbar_logout_displayname') }}</a>
-              </li>
-                  <li class="nav-item disabled">
-                      <a class="nav-link">{% trans with {'%username%': currentUser.identity, '%server%': getenv('site_xmpp_server_displayname') } %}logged.in.site{% endtrans %}</a>
-                  </li>
-              {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{{ base_url() }}{{ path_for('logout') }}">{{ getenv('site_navbar_logout_displayname') }}</a>
+                    </li>
+                    <li class="nav-item disabled">
+                        <a class="nav-link">{% trans with {'%username%': currentUser.identity, '%server%': getenv('site_xmpp_server_displayname') } %}logged.in.site{% endtrans %}</a>
+                    </li>
+                {% endif %}
 
-          </ul>
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-        <!-- Main content -->
-        <div id="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    {% if flash is not empty %}
-                        <div id="flashMessage">
-                            {% if flash.getMessage('info').0 %}
-                                <div class="alert alert-info">
-                                    {{ flash.getMessage('info').0 }}
-                                </div>
-                            {% endif %}
-
-                            {% if flash.getMessage('success').0 %}
-                                <div class="alert alert-success">
-                                    {{ flash.getMessage('success').0 }}
-                                </div>
-                            {% endif %}
-
-                            {% if flash.getMessage('error') %}
-                                {% for error in flash.getMessage('error') %}
-                                    <div class="alert alert-danger">
-                                        {{ error }}
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
+<!-- Main content -->
+<div id="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {% if flash is not empty %}
+                <div id="flashMessage">
+                    {% if flash.getMessage('info').0 %}
+                        <div class="alert alert-info">
+                            {{ flash.getMessage('info').0 }}
                         </div>
                     {% endif %}
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    {% block content %}
-                    {% endblock %}
+                    {% if flash.getMessage('success').0 %}
+                        <div class="alert alert-success">
+                            {{ flash.getMessage('success').0 }}
+                        </div>
+                    {% endif %}
+
+                    {% if flash.getMessage('error') %}
+                        {% for error in flash.getMessage('error') %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
-            </div>
+            {% endif %}
         </div>
+    </div>
 
-        <!-- Script -->
-        <script src="{{ base_url() }}/js/jquery.min.js"></script>
-        <script src="{{ base_url() }}/js/bootstrap.bundle.min.js"></script>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
 
-        <script>
-            $(".alert-danger" ).delay(30000).fadeOut(300);
-            $(".alert-success" ).delay(10000).fadeOut(300);
-            $(".alert-info" ).delay(10000).fadeOut(300);
-        </script>
+<!-- Script -->
+<script src="{{ base_url() }}/js/jquery.min.js"></script>
+<script src="{{ base_url() }}/js/bootstrap.bundle.min.js"></script>
+<script src="{{ base_url() }}/js/cookieconsent.min.js"></script>
 
-    <script src="{{ base_url() }}/js/cookieconsent.min.js"></script>
-    <script>
-        window.addEventListener("load", function(){
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#252e39"
-                    },
-                    "button": {
-                        "background": "#14a7d0"
-                    }
-                },
-                "content": {
-                    "message": "{{ 'cookiemodal.message'|trans }}",
-                    "dismiss": "{{ 'cookiemodal.dismiss'|trans }}",
-                    "href": "/signup"
-                }
-            })});
-    </script>
+<!-- Custom Script -->
+<script src="{{ base_url() }}/js/custom.js"></script>
 
-    </body>
+</body>
 </html>
