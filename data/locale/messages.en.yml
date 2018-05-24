@@ -22,14 +22,8 @@ sign.up.form.password: Password
 sign.up.form.password.placeholder: password
 
 # Legal modal
-legalmodal.open: I've read the agreement and I agree to it.
-legalmodal.title: Agreement
-
-# Cookie modal
-cookie.message: "Cookies are required for this website in order to check the login status. Those will be deleted once you end your browser session. Other cookies are not set. OK?"
-cookie.more: "Learn more in the privacy policy!"
-cookie.dismiss: "Yes!"
-cookie.deny: "No."
+legalmodal.open: I agree to all policies which apply for this service.
+legalmodal.title: Policy
 
 # Verification
 verification.mail.subject: "%server%: jabber account verification"

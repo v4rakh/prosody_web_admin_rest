@@ -42,26 +42,29 @@ as dependencies.
 * Point your document root to `public/`.
 * Example nginx conf:
 
-  
-    root   .../public;
-    index index.php;    
-    
-    rewrite_log on;
-    
-    location / {
-      try_files $uri $uri/ @ee;
-    }
-    
-    location @ee {
-      rewrite ^(.*) /index.php?$1 last;
-    }
-    
-    # php fpm
-    location ~ \.php$ {
-      fastcgi_split_path_info ^(.+\.php)(/.+)$;
-      fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
-      include        fastcgi_params;
-    }    
+```  
+root   .../public;
+index index.php;    
+
+rewrite_log on;
+
+location / {
+  try_files $uri $uri/ @ee;
+}
+
+location @ee {
+  rewrite ^(.*) /index.php?$1 last;
+}
+
+# php fpm
+location ~ \.php$ {
+  fastcgi_split_path_info ^(.+\.php)(/.+)$;
+  fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+  include        fastcgi_params;
+}  
+```  
+
+You should be able to set a very strict Content-Security-Policy.
 
 ## Upgrade ##
 
@@ -79,6 +82,10 @@ as dependencies.
 This app uses Symfony Translator. It's bootstraped in `Util\BootstrapHelper` and locales are placed under `data/locale/`. Adjust to your needs or help translating.
 
 ## Changelog ##
+- 0.3.0.1
+    - Remove cookie consent as session cookies should be allowed because they provide core functionality
+    - Adjust `legal.example.md` and add `PHPSESSID`
+    - Fix styles
 - 0.3.0.0
     - Fixes
     - Cookie consent
